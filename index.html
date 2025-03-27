@@ -2,107 +2,89 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <title>Studio Supreme | Landing Page</title>
+  <title>Studio Supreme | ランダムアプリ表示</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- リセットCSS (軽量) -->
+  <!-- 最低限のCSS（Apple風に簡易）-->
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
     body {
-      background-color: #fefefe;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: #fefefe;
       color: #333;
-      line-height: 1.5;
     }
-    a {
-      color: #007aff; /* Appleブルー */
-      text-decoration: none;
-    }
-    a:hover {
-      opacity: 0.8;
-    }
-  </style>
-
-  <!-- メインCSS -->
-  <style>
-    /* ヘッダー */
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #ffffff;
+    header, footer {
+      background: #fff;
       padding: 1rem 2rem;
       box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
-    .brand-title {
-      font-weight: bold;
-      font-size: 1.2rem;
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
     nav a {
-      margin-left: 1.5rem;
-      font-size: 1rem;
-      font-weight: 500;
+      margin-left: 1rem;
+      text-decoration: none;
+      color: #007aff;
     }
-
-    /* ヒーローセクション */
-    .hero {
+    h1 {
       text-align: center;
-      padding: 3rem 1rem 2rem;
+      margin: 2rem 0 1rem;
     }
-    .hero h1 {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
+    .app-section {
+      max-width: 800px;
+      margin: 1rem auto 2rem;
+      padding: 0 1rem;
     }
-    .hero p {
+    .app-section h2 {
       font-size: 1.2rem;
+      margin-bottom: 1rem;
       color: #666;
     }
-
-    /* アプリアイコンのカード一覧（Grid） */
-    .app-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 2rem;
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem 4rem;
-    }
-    .app-item {
+    .app-box {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      text-align: center;
+      margin-bottom: 1.5rem;
     }
-    .app-item img {
-      width: 100px;
-      height: 100px;
-      border-radius: 22px;
+    .app-box img {
+      width: 80px;
+      height: 80px;
+      margin-right: 1rem;
+      border-radius: 16px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      margin-bottom: 0.5rem;
-      transition: transform 0.15s ease;
+      transition: transform 0.2s;
     }
-    .app-item img:hover {
-      transform: scale(1.03);
+    .app-box img:hover {
+      transform: scale(1.05);
     }
-    .app-item p {
+    .app-info h3 {
+      margin-bottom: 0.2rem;
+      font-size: 1.1rem;
+    }
+    .app-info p {
+      margin-bottom: 0.4rem;
       font-size: 0.9rem;
-      color: #444;
-      margin-top: 0.5rem;
+      color: #555;
     }
-
-    /* フッター */
-    footer {
+    a.btn-store {
+      display: inline-block;
+      background: #007aff;
+      color: #fff;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    a.btn-store:hover {
+      background: #005bb5;
+    }
+    footer p {
       text-align: center;
-      padding: 1.5rem;
-      background: #fff;
-      box-shadow: 0 -1px 3px rgba(0,0,0,0.1);
-      font-size: 0.9rem;
+      margin: 0;
       color: #888;
+      font-size: 0.8rem;
     }
   </style>
 </head>
@@ -113,39 +95,99 @@
     <div class="brand-title">Studio Supreme</div>
     <nav>
       <a href="#apps">アプリ</a>
-      <!-- プライバシーポリシーへのリンク -->
       <a href="privacy-policy.html">プライバシーポリシー</a>
     </nav>
   </header>
 
-  <!-- ヒーローセクション -->
-  <section class="hero">
-    <h1>あなたの世界を広げるアプリ</h1>
-    <p>Apple と Google Play で安心してダウンロードできます。</p>
+  <!-- メイン見出し -->
+  <h1>ランダム表示アプリ</h1>
+
+  <!-- iOSアプリ表示セクション -->
+  <section class="app-section">
+    <h2>iPhone向けアプリ</h2>
+    <div class="app-box" id="iosAppBox">
+      <!-- ここにJavaScriptでランダムに埋め込む -->
+    </div>
   </section>
 
-  <!-- アプリ紹介セクション -->
-  <section id="apps" class="app-grid">
-    <!-- App Store -->
-    <div class="app-item">
-      <a href="https://apps.apple.com/us/developer/shota-higashihara/id871049286" target="_blank">
-        <img src="https://via.placeholder.com/100x100.png?text=App+Icon" alt="App Icon">
-      </a>
-      <p>App Store アプリ一覧</p>
-    </div>
-
-    <!-- Google Play -->
-    <div class="app-item">
-      <a href="https://play.google.com/store/apps/developer?id=Studio+Supreme" target="_blank">
-        <img src="https://via.placeholder.com/100x100.png?text=App+Icon" alt="App Icon">
-      </a>
-      <p>Google Play アプリ一覧</p>
+  <!-- Androidアプリ表示セクション -->
+  <section class="app-section">
+    <h2>Android向けアプリ</h2>
+    <div class="app-box" id="androidAppBox">
+      <!-- ここにJavaScriptでランダムに埋め込む -->
     </div>
   </section>
 
   <!-- フッター -->
   <footer>
-    © 2025 Studio Supreme
+    <p>© 2025 Studio Supreme</p>
   </footer>
+
+  <!-- JavaScriptでランダム表示を実装 -->
+  <script>
+    // iPhone向けアプリのデータ配列
+    const iOSApps = [
+      {
+        name: "さすまたやー",
+        icon: "https://via.placeholder.com/80x80.png?text=Sasumata",
+        link: "https://apps.apple.com/jp/app/sasumata-ya/id1234567890",
+        desc: "最新のさすまたアクションゲーム！"
+      },
+      {
+        name: "Jump Rage",
+        icon: "https://via.placeholder.com/80x80.png?text=JumpRage",
+        link: "https://apps.apple.com/jp/app/jump-rage/id0987654321",
+        desc: "イライラするほど難しいジャンプゲーム。"
+      },
+      // 追加で自由に増やせます
+    ];
+
+    // Android向けアプリのデータ配列
+    const androidApps = [
+      {
+        name: "連打力測定",
+        icon: "https://via.placeholder.com/80x80.png?text=Renda",
+        link: "https://play.google.com/store/apps/details?id=com.studiosupreme.tapthesquare",
+        desc: "あなたの連打力を極限まで試します！"
+      },
+      {
+        name: "すし鬼ごっこ",
+        icon: "https://via.placeholder.com/80x80.png?text=Sushi",
+        link: "https://play.google.com/store/apps/details?id=com.studiosupreme.sasumatayeah",
+        desc: "さすまたを積もう！"
+      },
+      // 追加で自由に増やせます
+    ];
+
+    // ランダムに1つ選ぶ関数
+    function getRandomApp(appsArray) {
+      const randomIndex = Math.floor(Math.random() * appsArray.length);
+      return appsArray[randomIndex];
+    }
+
+    // iOSアプリからランダム1つを取得し、HTML要素を作成
+    const iosApp = getRandomApp(iOSApps);
+    const iosAppBox = document.getElementById("iosAppBox");
+    iosAppBox.innerHTML = `
+      <img src="${iosApp.icon}" alt="${iosApp.name} Icon">
+      <div class="app-info">
+        <h3>${iosApp.name}</h3>
+        <p>${iosApp.desc}</p>
+        <a class="btn-store" href="${iosApp.link}" target="_blank">App Store</a>
+      </div>
+    `;
+
+    // Androidアプリからランダム1つを取得し、HTML要素を作成
+    const androidApp = getRandomApp(androidApps);
+    const androidAppBox = document.getElementById("androidAppBox");
+    androidAppBox.innerHTML = `
+      <img src="${androidApp.icon}" alt="${androidApp.name} Icon">
+      <div class="app-info">
+        <h3>${androidApp.name}</h3>
+        <p>${androidApp.desc}</p>
+        <a class="btn-store" href="${androidApp.link}" target="_blank">Google Play</a>
+      </div>
+    `;
+  </script>
 </body>
 </html>
